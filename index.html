@@ -1412,8 +1412,7 @@ function openModal(key) {
   document.querySelectorAll('.gallery-item img').forEach(img => {
     img.style.cursor = 'zoom-in';
     img.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(img.src); });
-  });
-}, 100);
+   }, 100);
 }
 // Lightbox para galería
 function openLightbox(src) {
