@@ -1408,6 +1408,12 @@ function openModal(key) {
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
   overlay.scrollTop = 0;
+   setTimeout(() => {
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(img.src); });
+  });
+}, 100);
 }
 // Lightbox para galería
 function openLightbox(src) {
