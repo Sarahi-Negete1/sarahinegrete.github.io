@@ -604,6 +604,7 @@ nav.scrolled { padding: 14px 48px; }
   transition: transform 0.4s;
 }
 .gallery-item:hover img { transform: scale(1.05); }
+
 .gallery-placeholder {
   width: 100%;
   height: 100%;
@@ -1408,7 +1409,15 @@ function openModal(key) {
   document.body.style.overflow = 'hidden';
   overlay.scrollTop = 0;
 }
-
+// Lightbox para galería
+function openLightbox(src) {
+  const lb = document.createElement('div');
+  lb.id = 'lightbox';
+  lb.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.95);display:flex;align-items:center;justify-content:center;cursor:zoom-out;';
+  lb.innerHTML = `<img src="${src}" style="max-width:90vw;max-height:90vh;object-fit:contain;">`;
+  lb.onclick = () => lb.remove();
+  document.body.appendChild(lb);
+}
 function closeModal() {
   document.getElementById('modal-overlay').classList.remove('active');
   document.body.style.overflow = '';
